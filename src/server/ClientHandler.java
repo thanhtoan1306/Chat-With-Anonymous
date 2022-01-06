@@ -85,10 +85,10 @@ public class ClientHandler implements Runnable {
                         if (message[1].equals("true") && !server.listChatParing.isEmpty()) {
                             for (ChatModel cp : server.listChatParing) {
                                 if (cp.getNickname1().equals(userchat)) {
-                                    cp.setResponse1(true);
-                                    if (cp.isResponse2() == true) {
+                                    cp.setConfirmChatWith1(true);
+                                    if (cp.isConfirmChatWith2() == true) {
                                         listUserBlock.removeAll(listUserBlock);
-                                        sendClient("joinchat"+ Constant.spread + userchat);
+                                        sendClient("joinchat"+ Constant.spread + userchat); // báo cho user mà bạn muốn chat để update GUI
                                         for (ClientHandler tc : server.listUserActive) {
                                             if (tc.getNickname() != null && tc.getNickname().equals(userchat)) {
                                                 tc.sendClient("joinchat"+ Constant.spread + getNickname());
@@ -101,13 +101,14 @@ public class ClientHandler implements Runnable {
                                     break;
                                 }
                                 if (cp.getNickname2().equals(userchat)) {
-                                    cp.setResponse2(true);
-                                    if (cp.isResponse1() == true) {
-                                        listUserBlock.removeAll(listUserBlock);
-                                        sendClient("joinchat"+ Constant.spread + userchat);
+                                    cp.setConfirmChatWith2(true);
+                                    if (cp.isConfirmChatWith1()== true) {
+                                        listUserBlock.removeAll(listUserBlock);                                        
+                                        sendClient("joinchat"+ Constant.spread + userchat); // báo cho user mà bạn muốn chat để update GUI
                                         for (ClientHandler tc : server.listUserActive) {
                                             if (tc.getNickname() != null && tc.getNickname().equals(userchat)) {
-                                                tc.sendClient("joinchat"+ Constant.spread + getNickname());
+                                                
+                                                tc.sendClient("joinchat"+ Constant.spread + getNickname()); // báo cho bản thân để update GUI
                                                 break;
                                             }
                                         }

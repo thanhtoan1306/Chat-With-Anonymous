@@ -10,8 +10,8 @@ public class ChatModel {
 
     private String nickname1;
     private String nickname2;
-    private boolean response1;
-    private boolean response2;
+    private boolean confirmChatWith1;
+    private boolean confirmChatWith2;
 
     public ChatModel() {
     }
@@ -19,8 +19,8 @@ public class ChatModel {
     public ChatModel(String nickname1, String nickname2) {
         this.nickname1 = nickname1;
         this.nickname2 = nickname2;
-        this.response1 = false;
-        this.response2 = false;
+        this.confirmChatWith1 = false;
+        this.confirmChatWith2 = false;
     }
 
     public String getNickname1() {
@@ -39,21 +39,37 @@ public class ChatModel {
         this.nickname2 = nickname2;
     }
 
-    public boolean isResponse1() {
-        return response1;
+    public boolean isConfirmChatWith1() {
+        return confirmChatWith1;
     }
 
-    public void setResponse1(boolean response1) {
-        this.response1 = response1;
+    public void setConfirmChatWith1(boolean confirmChatWith1) {
+        this.confirmChatWith1 = confirmChatWith1;
     }
 
-    public boolean isResponse2() {
-        return response2;
+    public boolean isConfirmChatWith2() {
+        return confirmChatWith2;
     }
 
-    public void setResponse2(boolean response2) {
-        this.response2 = response2;
+    public void setConfirmChatWith2(boolean confirmChatWith2) {
+        this.confirmChatWith2 = confirmChatWith2;
     }
+
+//    public boolean isResponse1() {
+//        return confirmChatWith1;
+//    }
+//
+//    public void setResponse1(boolean response1) {
+//        this.confirmChatWith1 = response1;
+//    }
+//
+//    public boolean isResponse2() {
+//        return confirmChatWith2;
+//    }
+//
+//    public void setResponse2(boolean response2) {
+//        this.confirmChatWith2 = response2;
+//    }
 
     public ArrayList<String> nicknameList() {
 
